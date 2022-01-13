@@ -8,3 +8,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "WalletApi"
 include ':app'
+include ':wallet_lib'
