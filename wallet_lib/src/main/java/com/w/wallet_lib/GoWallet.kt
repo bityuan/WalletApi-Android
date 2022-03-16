@@ -2,7 +2,7 @@ package com.w.wallet_lib
 
 import walletapi.*
 
-open class GoWallet {
+object GoWallet {
 
     //1:chinese 2:english
     fun createMnem(mnemLangType: Int): String {
