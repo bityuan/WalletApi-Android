@@ -104,7 +104,21 @@ object OBWallet {
     }
 
     fun signTran(chain: String, unSignData: String, priv: String): String {
-        return Walletapi.signRawTransaction(chain, Walletapi.stringTobyte(unSignData), priv);
+        val signData = SignData()
+        signData.cointype = chain
+        signData.data = Walletapi.stringTobyte(unSignData)
+        signData.privKey = priv
+        signData.addressID
+        return Walletapi.signRawTransaction(signData);
+    }
+
+    fun signTran(chain: String, unSignData: String, priv: String, addressID: Int): String {
+        val signData = SignData()
+        signData.cointype = chain
+        signData.data = Walletapi.stringTobyte(unSignData)
+        signData.privKey = priv
+        signData.addressID = addressID
+        return Walletapi.signRawTransaction(signData);
     }
 
     fun sendTran(chain: String, tokenSymbol: String, signData: String, goNoderUrl: String): String {
